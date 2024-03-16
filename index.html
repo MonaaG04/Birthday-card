@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Card</title>
+<style>
+  body {
+    font-family:'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+
+  .card {
+    width: 400px;
+    height: 300px;
+    perspective: 1000px;
+  }
+
+  .inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+  }
+
+  .card:hover .inner {
+    transform: rotateY(180deg);
+  }
+
+  .front,
+  .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    backface-visibility: hidden;
+  }
+  .front {
+    background-color: #b8baf3; /* Background color for the front side */
+  }
+
+  .back {
+    background-color: #ffcccc;
+    transform: rotateY(180deg);
+  }
+
+  .heart {
+    color: red;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="inner">
+    <div class="front">
+      <h2>Happy Birthday Priyam! <span class="heart">&#10084;</span></h2>
+      <button onclick="flip()">Open</button>
+    </div>
+    <div class="back">
+      <p>Wishing you abundant success, love, and happiness in the year ahead!</p>
+      <p>I'm so proud to call you mine.</p>
+      <button onclick="unflip()">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function flip() {
+    document.querySelector('.inner').style.transform = 'rotateY(180deg)';
+  }
+
+  function unflip() {
+    document.querySelector('.inner').style.transform = 'rotateY(0deg)';
+  }
+</script>
+
+</body>
+</html>
+
+</body>
+</html>
